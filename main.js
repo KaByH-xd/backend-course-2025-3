@@ -7,15 +7,26 @@ program
   .option('-o, --output <path>', 'шлях до файлу для запису результату')
   .option('-d, --display', 'вивести результат у консоль')
   .option('-h, --humidity', 'додати вивід вологості вдень (Humidity3pm)')
-  .option('-r, --rainfall <number>', 'фільтр: лише записи, де кількість опадів більше за число');
+  .option('-r, --rainfall <number>', 'фільтр: лише записи, де кількість опадів більше за число')
+  .configureOutput({
+    outputError: (str, write) => {
+    if (str.startsWith('error: required option \'-i'))
+      write('there is no -i little nigga\n');
+    else if (str.startsWith('error: option \'-o'))
+      write('there is no -o sweetie\n');
+    else
+      write(str);
+  }
+});
+
 
 program.parse(process.argv);
 const options = program.opts();
 
-if (!options.input) {
+/*if (!options.input) {
   console.error('Please, specify input file');
   process.exit(1);
-}
+}*/
 if (!fs.existsSync(options.input)) {
   console.error('Cannot find input file');
   process.exit(1);
