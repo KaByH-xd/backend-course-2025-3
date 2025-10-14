@@ -11,9 +11,11 @@ program
   .configureOutput({
     outputError: (str, write) => {
     if (str.startsWith('error: required option \'-i'))
-      write('there is no -i little nigga\n');
+      write('We cannot cook, Jesse. There is no -i \n');
     else if (str.startsWith('error: option \'-o'))
-      write('there is no -o sweetie\n');
+      write('Your next line is |There is no -o|\n');
+    else if (str.startsWith('error: option \'-i'))
+      write('Oh, there is no path ? It was me, Dio\n');
     else
       write(str);
   }
@@ -28,7 +30,7 @@ const options = program.opts();
   process.exit(1);
 }*/
 if (!fs.existsSync(options.input)) {
-  console.error('Cannot find input file');
+  console.error('Is your program cannot find input file ? Then Better Call KaByH');
   process.exit(1);
 }
 
