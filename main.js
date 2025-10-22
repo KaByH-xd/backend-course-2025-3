@@ -13,7 +13,7 @@ program
     if (str.startsWith('error: required option \'-i'))
       write('We cannot cook, Jesse. There is no -i \n');
     else if (str.startsWith('error: option \'-o'))
-      write('Your next line is |There is no -o|\n');
+      write('Is your program cannot find -o? Then Better Call KaByH\n');
     else if (str.startsWith('error: option \'-i'))
       write('Oh, there is no path ? It was me, Dio\n');
     else
@@ -25,12 +25,12 @@ program
 program.parse(process.argv);
 const options = program.opts();
 
-/*if (!options.input) {
+if (!options.input) {
   console.error('Please, specify input file');
   process.exit(1);
-}*/
+}
 if (!fs.existsSync(options.input)) {
-  console.error('Is your program cannot find input file ? Then Better Call KaByH');
+  console.error('Cannot find input file');
   process.exit(1);
 }
 
@@ -50,4 +50,4 @@ if (options.output) {
 if (options.display) {
   console.log(results.join('\n'));
 }
-// Якщо ні display, ні output — нічого не виводимо
+
