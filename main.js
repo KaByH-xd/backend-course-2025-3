@@ -13,9 +13,11 @@ program
     if (str.startsWith('error: required option \'-i'))
       write('We cannot cook, Jesse. There is no -i \n');
     else if (str.startsWith('error: option \'-o'))
-      write('Is your program cannot find -o? Then Better Call KaByH\n');
+      write('Is your program cannot find -o/output file? Then Better Call KaByH\n');
     else if (str.startsWith('error: option \'-i'))
       write('Oh, there is no path ? It was me, Dio\n');
+    else if (str.startsWith('error: option \'-r'))
+      write('Your next line is |Oh, I have to write a number after -r|\n');
     else
       write(str);
   }
